@@ -1,0 +1,30 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+
+# Environment variables and secrets
+.env
+*.env
+
+# AWS credentials / configuration
+.aws/
+
+# Generated project data
+data/raw/
+data/corrupted/
+data/valid/
+data/quarantine/
+
+# Jupyter Notebook cache
+.ipynb_checkpoints/
+
+# IDE settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
