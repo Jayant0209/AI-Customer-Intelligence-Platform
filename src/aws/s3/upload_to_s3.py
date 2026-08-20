@@ -23,16 +23,32 @@ if __name__ == "__main__":
     project_root = Path(__file__).resolve().parents[3]
 
     datasets = [
-        ("customers.csv", "customers"),
-        ("products.csv", "products"),
-        ("orders.csv", "orders"),
-        ("payments.csv", "payments"),
+        # Raw data
+        ("data/raw/customers.csv", "raw/customers/customers.csv"),
+        ("data/raw/products.csv", "raw/products/products.csv"),
+        ("data/raw/orders.csv", "raw/orders/orders.csv"),
+        ("data/raw/payments.csv", "raw/payments/payments.csv"),
+
+        # Validated data
+        ("data/valid/customers_valid.csv", "validated/customers/customers.csv"),
+        ("data/valid/orders_valid.csv", "validated/orders/orders.csv"),
+
+        # Quarantine data
+        (
+            "data/quarantine/customers_invalid.csv",
+            "quarantine/customers/customers_invalid.csv"
+        ),
+        (
+            "data/quarantine/orders_invalid.csv",
+            "quarantine/orders/orders_invalid.csv"
+        ),
     ]
 
-    for file_name, folder_name in datasets:
-        local_file = project_root / "data" / "raw" / file_name
+    for local_path, s3_key in datasets:
+        local_file = project_root / local_path
 
-        upload_file(
-            local_file,
-            f"raw/{folder_name}/{file_name}"
-        )
+        if not local_file.exists():
+            print(f"File not found: {local_file}")
+            continue
+
+        upload_file(local_file, s3_key)
