@@ -1,0 +1,51 @@
+version: 2
+
+models:
+
+  - name: stg_customers
+    description: Clean customer data from Snowflake staging layer.
+    columns:
+      - name: CUSTOMER_ID
+        tests:
+          - not_null
+          - unique
+
+      - name: EMAIL
+        tests:
+          - not_null
+
+  - name: stg_products
+    description: Clean product data from Snowflake staging layer.
+    columns:
+      - name: PRODUCT_ID
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_orders
+    description: Clean order data from Snowflake staging layer.
+    columns:
+      - name: ORDER_ID
+        tests:
+          - not_null
+          - unique
+
+      - name: CUSTOMER_ID
+        tests:
+          - not_null
+
+      - name: PRODUCT_ID
+        tests:
+          - not_null
+
+  - name: stg_payments
+    description: Clean payment data from Snowflake staging layer.
+    columns:
+      - name: PAYMENT_ID
+        tests:
+          - not_null
+          - unique
+
+      - name: ORDER_ID
+        tests:
+          - not_null

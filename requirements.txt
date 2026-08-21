@@ -1,3 +1,6 @@
 pandas
 numpy
 faker
+boto3
+dbt-core
+dbt-snowflake

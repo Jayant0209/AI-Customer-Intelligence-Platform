@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: staging
+    database: AI_CUSTOMER_DB
+    schema: STAGING
+
+    tables:
+      - name: CUSTOMERS_STG
+      - name: PRODUCTS_STG
+      - name: ORDERS_STG
+      - name: PAYMENTS_STG

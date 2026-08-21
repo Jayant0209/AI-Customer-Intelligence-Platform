@@ -1,0 +1,12 @@
+SELECT
+    ORDER_ID,
+    CUSTOMER_ID,
+    PRODUCT_ID,
+    ORDER_DATE,
+    QUANTITY,
+    UNIT_PRICE,
+    DISCOUNT,
+    TOTAL_AMOUNT,
+    ORDER_STATUS,
+    REGION
+FROM {{ source('staging', 'ORDERS_STG') }}
