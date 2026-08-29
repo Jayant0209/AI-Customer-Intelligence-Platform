@@ -1,0 +1,67 @@
+# =========================================================
+# Python
+# =========================================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# =========================================================
+# Secrets / Credentials
+# =========================================================
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# =========================================================
+# Airflow runtime files
+# =========================================================
+airflow.db
+airflow.db-shm
+airflow.db-wal
+airflow.cfg
+airflow.cfg.backup
+logs/
+simple_auth_manager_passwords.json.generated
+
+# =========================================================
+# dbt generated files
+# =========================================================
+ai_customer_dbt/target/
+ai_customer_dbt/logs/
+ai_customer_dbt/dbt_packages/
+ai_customer_dbt/packages.yml
+
+# =========================================================
+# Project backup files
+# =========================================================
+*_backup.py
+*_v1_backup.py
+*_before_*.py
+
+# =========================================================
+# OS / Editor
+# =========================================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================================================
+# Large/generated data
+# =========================================================
+*.parquet
+*.pkl
+*.pickle
+*.joblib

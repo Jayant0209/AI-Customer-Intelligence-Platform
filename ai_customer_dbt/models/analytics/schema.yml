@@ -1,0 +1,63 @@
+version: 2
+
+models:
+
+  - name: dim_customers
+    description: Customer dimension containing customer profile information.
+    columns:
+      - name: CUSTOMER_ID
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_products
+    description: Product dimension containing product and pricing information.
+    columns:
+      - name: PRODUCT_ID
+        tests:
+          - not_null
+          - unique
+
+  - name: fact_orders
+    description: Order-level fact table containing customer purchases.
+    columns:
+      - name: ORDER_ID
+        tests:
+          - not_null
+          - unique
+
+      - name: CUSTOMER_ID
+        tests:
+          - not_null
+
+      - name: PRODUCT_ID
+        tests:
+          - not_null
+
+  - name: fact_payments
+    description: Payment-level fact table containing payment transactions.
+    columns:
+      - name: PAYMENT_ID
+        tests:
+          - not_null
+          - unique
+
+      - name: ORDER_ID
+        tests:
+          - not_null
+
+  - name: customer_metrics
+    description: Customer-level business metrics derived from orders.
+    columns:
+      - name: CUSTOMER_ID
+        tests:
+          - not_null
+          - unique
+
+      - name: TOTAL_ORDERS
+        tests:
+          - not_null
+
+      - name: TOTAL_REVENUE
+        tests:
+          - not_null
